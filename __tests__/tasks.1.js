@@ -21,7 +21,7 @@ afterAll((done) => {
         this.puppeteer.close();
     } catch (e) { }
     done();
-});
+}, 30000);
 
 describe("UIB - Responsive Bootstrap Webpage", () => {
     it("Index file should contain appropriate meta tags", async () => {
