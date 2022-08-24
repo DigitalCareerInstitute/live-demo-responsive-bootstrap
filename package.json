@@ -1,11 +1,10 @@
 {
   "scripts": {
-    "preinstall": "npm_config_yes=true npx github:DCI-EdTech/autograding-setup --no",
     "test": "jest --runInBand --detectOpenHandles --forceExit"
   },
   "devDependencies": {
     "jest": "^27.5.1",
-    "jest-puppeteer": "^6.0.3"
+    "puppeteer": "^16.2.0"
   },
   "autograding": {
     "setup": "cd ./node_modules/puppeteer && npm run install"
