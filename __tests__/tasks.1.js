@@ -47,7 +47,7 @@ describe("Slideshow", () => {
 });
 
 describe("Row", () => {
-    it("Page Should use bootstrap row class, Each containing an image", async () => {
+    it("Page Should use bootstrap row class", async () => {
         try {
             const rows = await page.$$('div.row');
             expect(rows.length).toBeGreaterThan(1);
