@@ -17,8 +17,8 @@ afterAll((done) => {
     done();
 }, 30000);
 
-describe("Bootstrap CDN", () => {
-    it("Bootstrap CDN should be loaded", async () => {
+describe("Bootstrap", () => {
+    it("Bootstrap is included in the page", async () => {
         const cdn = await page.$eval('head link[href*="bootstrap"]', (el) => el.href);
         expect(cdn).toBeTruthy();
     });
@@ -35,8 +35,8 @@ describe("Navigation", () => {
     });
 });
 
-describe("Carousel", () => {
-    it("Carousel exists and should change background image upon swipe", async () => {
+describe("Slideshow", () => {
+    it("Carousel component is used", async () => {
         try {
             const carousel = await page.$('div.carousel');
             expect(carousel).not.toBe(null);
@@ -46,7 +46,20 @@ describe("Carousel", () => {
     });
 });
 
-describe("Cards section", () => {
+describe("Row", () => {
+    it("Page Should use bootstrap row class, Each containing an image", async () => {
+        try {
+            const rows = await page.$$('div.row');
+            expect(rows.length).toBeGreaterThan(1);
+            const rowImages = await page.$$('div.row img');
+            expect(rowImages.length).toBeGreaterThan(2);
+        } catch (err) {
+            throw err;
+        }
+    });
+});
+
+describe("3-column section", () => {
     it("Page Should contain 3 Bootstrap card components", async () => {
         try {
             const cards = await page.$$('div.card');
@@ -55,14 +68,9 @@ describe("Cards section", () => {
             throw err;
         }
     });
-});
-
-describe("Row Sections", () => {
-    it("Page Should contain bootstrap row sections, Each with an image", async () => {
+    it("Cards are nested in rows", async () => {
         try {
-            const rows = await page.$$('div.row');
-            expect(rows.length).toBeGreaterThan(1);
-            const rowImages = await page.$$('div.row > div > img');
+            const rowImages = await page.$$('div.row img');
             expect(rowImages.length).toBeGreaterThan(2);
         } catch (err) {
             throw err;
