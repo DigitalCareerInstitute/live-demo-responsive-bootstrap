@@ -1,6 +1,4 @@
 # Responsive Bootstrap Webpage
-[![Status overview badge](../../blob/badges/.github/badges/autograding-solution/badge.svg)](#-results)
-
 
 Create the webpage shown below in the reference image using **only** Bootstrap - no CSS should be necessary.
 
